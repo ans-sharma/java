@@ -4,9 +4,8 @@ class LibraryMember{
     private int MemberId;
     private long PhoneNo;
     private String MemberName, Address;
-    void read(){
-        System.out.print("Enter the MemberId: ");
-        MemberId = input.nextInt();
+    void read(int MemberId){
+        this.MemberId = MemberId;
         System.out.print("Enter the Name: ");
         MemberName = input.next();
         System.out.print("Enter the Address: ");
@@ -29,7 +28,6 @@ class LibraryMember{
         }
     }
     // CheckMemberId()
-		   
     // void changeMemberId(int MemberId){
     //     this.MemberId = MemberId;
     // }
@@ -54,8 +52,8 @@ class Student extends LibraryMember{
     Scanner input = new Scanner(System.in);
     private int RollNo;
     private String Stream;
-    void read(){
-        super.read();
+    void read(int MemberId){
+        super.read(MemberId);
         System.out.print("Enter the RollNO: ");
         this.RollNo = input.nextInt();
         System.out.print("Enter the Stream: ");
@@ -71,8 +69,8 @@ class Faculty extends LibraryMember{
     Scanner input = new Scanner(System.in);
     private int FacultyId;
     private String Designation;
-    void read(){
-        super.read();
+    void read(int MemberId){
+        super.read(MemberId);
         System.out.print("Enter the FaculityId: ");
         this.FacultyId = input.nextInt();
         System.out.print("Enter the Designation: ");
@@ -88,6 +86,7 @@ public class Library {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int iSize, count =0;
+        int MemberId;
         System.out.println("*******Welcome to Library Managment System*******");
         System.out.print("No. of Members: ");
         iSize = input.nextInt();
@@ -104,15 +103,40 @@ public class Library {
                         break;
                     }
                     if(iChoice1 == 1){
-                        
+                        System.out.print("Enter the MemberId: ");
+                        MemberId = input.nextInt();
+                        while(true){
+                            boolean ch1 = checkMemberId(MemberId, s, count);
+                            if(ch1 == false){
+                                System.out.println("MemberID("+ MemberId +") is Already Present:");
+                                System.out.print("Please Enter a New MemberID: ");
+                                MemberId = input.nextInt();
+                                boolean check = checkMemberId(MemberId, s, count);
+                            }
+                            else
+                                break;
+                        }
                         s[count] = new Student();
-                        s[count].read();
+                        s[count].read(MemberId);
                         // LibraryMember.checkMemberId(s, s[count].getMemberId(), count);
                         count++;
                     }
                     else if(iChoice1 == 2){
+                        System.out.print("Enter the MemberId: ");
+                        MemberId = input.nextInt();
+                        while(true){
+                            boolean ch1 = checkMemberId(MemberId, s, count);
+                            if(ch1 == false){
+                                System.out.println("MemberID("+ MemberId +") is Already Present:");
+                                System.out.print("Please Enter a New MemberID: ");
+                                MemberId = input.nextInt();
+                                boolean check = checkMemberId(MemberId, s, count);
+                            }
+                            else
+                                break;
+                        }
                         s[count] = new Faculty();
-                        s[count].read();
+                        s[count].read(MemberId);
                         // LibraryMember.checkMemberId(s, s[count].getMemberId(), count);
                         count++;
                     }
@@ -139,7 +163,7 @@ public class Library {
                     continue;
                 }
                 System.out.print("Enter the MemberId: ");
-                int MemberId = input.nextInt();
+                MemberId = input.nextInt();
                 boolean found = false;
                 for(int i = 0; i<count; i++){  //iSize should be count
                     if (s[i].getMemberId() == MemberId){
@@ -159,5 +183,13 @@ public class Library {
             else
                 System.out.println("Invalid Input, Please try Again!");
         }
+    }
+
+    public static boolean checkMemberId(int MemberId, LibraryMember[] s, int count){
+        for(int i=0; i < count; i++){
+            if (s[i].getMemberId() == MemberId)
+                return false;
+        }
+        return true;
     }
 }
