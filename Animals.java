@@ -106,8 +106,10 @@ public class Animals {
         c.read();
         System.out.println("-------------------------------");
         d.printDetails();
+        d.speak();
         System.out.println("-------------------------------");
         c.printDetails();
+        c.speak();
         System.out.println("-------------------------------");
     }
 }
