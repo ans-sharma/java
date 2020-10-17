@@ -24,7 +24,8 @@ public class repeatingSequence {
                     if(j+steps>sText.length()){
                         break;
                     }
-                    if(check == sText.substring(j, j+steps)){
+                    if(check.equals(sText.substring(j, j+steps))){
+                        // System.out.println("working loop");
                         count++;
                     }
                 }
