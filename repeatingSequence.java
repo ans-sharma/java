@@ -4,7 +4,8 @@
 // O/P : bdf
 
 import java.util.Scanner;
-public class repeatingSequence{
+
+public class repeatingSequence {
 
     public static void main(String[] args) {
         String sText, sMax = "", seq2;
@@ -12,15 +13,23 @@ public class repeatingSequence{
         int iMax = 0, iCount = 0;
         System.out.print("Enter the String Sequence: ");
         sText = input.next();
-        for(int i = 0; i < sText.length(); i++){
-            int count = 0;
-            char check = sText.toCharArray()[i];
-            for(int j = 0; j < sText.length(); j++){
-                if(check == sText.toCharArray()[j]){
-                    count++;
+        for(int steps=1; steps <= sText.length(); steps++){
+            for (int i = 0; i < sText.length(); i++) {
+                int count = 0;
+                if(i+steps>sText.length()){
+                    break;
                 }
+                String check = sText.substring(i, i+steps);
+                for (int j = 0; j < sText.length(); j++){
+                    if(j+steps>sText.length()){
+                        break;
+                    }
+                    if(check == sText.substring(j, j+steps)){
+                        count++;
+                    }
+                }
+                System.out.print("Sequence: " + check + " = " + count + "\n");
             }
-            System.out.print("Sequence: " + check + " = " + count + "\n");
         }
     }
 }
