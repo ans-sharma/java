@@ -1,6 +1,6 @@
 
 // Java Program to find the longest repeating sequence in a string
-// I/P : str = &quot;acbdfghybdf&quot;
+// I/P : str = acbdfghybdf
 // O/P : bdf
 
 import java.util.Scanner;
@@ -29,8 +29,13 @@ public class repeatingSequence {
                         count++;
                     }
                 }
-                System.out.print("Sequence: " + check + " = " + count + "\n");
+                if(count >= iCount){
+                    iCount = count;
+                    sMax = check;
+                }
+                // System.out.print("Sequence: " + check + " = " + count + "\n");
             }
         }
+        System.out.println("Longest repeating sequence is " + sMax + ", (" + iCount + ")times.");
     }
 }
