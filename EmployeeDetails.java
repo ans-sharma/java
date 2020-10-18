@@ -1,3 +1,4 @@
+
 // Create a class employee with the following members:
 // a. Name
 // B. Address
@@ -12,15 +13,16 @@
 // ProjectLeader: with the extra members projectId and projectAllowance.
 // Override getGrossSalary to include the commission in case of managers, and show all details for both of
 // the derived class by overriding the showDetails method.
+import java.util.Scanner;
 
 class Employee {
     private String Name, Address, PAN;
     private int BasicSalary;
 
     void showDetails() {
-        System.out.print("Name: " + Name);
-        System.out.print("Address: " + Address);
-        System.out.print("PAN: " + PAN);
+        System.out.println("Name: " + Name);
+        System.out.println("Address: " + Address);
+        System.out.println("PAN: " + PAN);
     }
 
     int getGrossSalary() {
@@ -45,7 +47,8 @@ class Manager extends Employee {
 
     void showDetails() {
         super.showDetails();
-        System.out.print("Department: " + Department);
+        System.out.println("Department: " + Department);
+        // System.out.println("");
     }
 
     void setManagerData(String Name, String Address, String PAN, int BasicSalary, String Department, int Commision) {
@@ -61,13 +64,28 @@ class ProjectLeader extends Employee {
 
     void showDetails() {
         super.showDetails();
-        System.out.print("ProjectId: " + ProjectId);
-        System.out.print("ProjectAllowance: " + ProjectAllowance);
+        System.out.println("ProjectId: " + ProjectId);
+        System.out.println("ProjectAllowance: " + ProjectAllowance);
+        // System.out.println("");
     }
 
-    void setManagerData(String Name, String Address, String PAN, int BasicSalary, String ProjectId, int ProjectAllowance) {
+    void setProjectLeaderData(String Name, String Address, String PAN, int BasicSalary, String ProjectId, int ProjectAllowance) {
         super.setData(Name, Address, PAN, BasicSalary);
         this.ProjectId = ProjectId;
         this.ProjectAllowance = ProjectAllowance;
+    }
+}
+
+public class EmployeeDetails {
+    public static void main(String[] args) {
+        Manager m = new Manager();
+        ProjectLeader p = new ProjectLeader();
+        m.setManagerData("Anshuman", "kgp", "Az444", 100000, "CS", 100000);
+        p.setProjectLeaderData("Anshumann", "kgpp", "A5555", 500000, "CSS", 500000);
+        m.showDetails();
+        System.out.println(m.getGrossSalary());
+        System.out.println("");
+        p.showDetails();
+        System.out.println(p.getGrossSalary());
     }
 }
