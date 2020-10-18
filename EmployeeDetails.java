@@ -83,9 +83,9 @@ public class EmployeeDetails {
         m.setManagerData("Anshuman", "kgp", "Az444", 100000, "CS", 100000);
         p.setProjectLeaderData("Anshumann", "kgpp", "A5555", 500000, "CSS", 500000);
         m.showDetails();
-        System.out.println(m.getGrossSalary());
+        System.out.println("Gross Salary: " + m.getGrossSalary());
         System.out.println("");
         p.showDetails();
-        System.out.println(p.getGrossSalary());
+        System.out.println("Gross Salary: " + p.getGrossSalary());
     }
 }
