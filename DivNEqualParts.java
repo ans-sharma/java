@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 class DevString {
-    void devStringUsingSun(String sText, int iParts) {
+    void devStringUsingSub(String sText, int iParts) {
         if(sText.length() % iParts == 0){
             iParts = sText.length() / iParts;
             for(int i = 0; i < sText.length(); i+=iParts){
@@ -42,6 +42,6 @@ public class DivNEqualParts {
         System.out.print("How many parts do you want to split the string: ");
         iParts = input.nextInt();
         dev.devString(sText, iParts);
-        // dev.devStringUsingSun(sText, iParts);
+        // dev.devStringUsingSub(sText, iParts);
     }
 }
