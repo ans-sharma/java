@@ -12,7 +12,7 @@ public class repeatingSequence {
         Scanner input = new Scanner(System.in);
         int iMax = 0, iCount = 0;
         System.out.print("Enter the String Sequence: ");
-        sText = input.next();
+        sText = input.nextLine();
         for(int steps=1; steps <= sText.length(); steps++){
             for (int i = 0; i < sText.length(); i++) {
                 int count = 0;
