@@ -40,6 +40,8 @@ public class rowAndColMin {
         }
         for(int i = 0; i < r+1; i++){
             for(int j = 0; j < c+1; j++){
+                if (i == r && j == c)
+                    break;
                 System.out.print(mat[i][j] + " ");
                 if(j==c-1){
                     System.out.print("|");
