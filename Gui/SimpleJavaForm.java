@@ -16,6 +16,7 @@ class SimpleJavaForm extends JFrame implements ActionListener{
         lName = new JLabel("Name:");
         lRoll = new JLabel("Roll:");
         lResult = new JLabel("Result:");
+
         lName.setBounds(60,50,90,20);
         txtName.setBounds(100,50,150,20);
         lRoll.setBounds(70,80,90,20);
@@ -53,9 +54,15 @@ class SimpleJavaForm extends JFrame implements ActionListener{
             lResult.setVisible(false);
         }
         if(e.getSource()==btnSubmit){
+            System.out.println(txtName.getText());
+            if(txtName.getText() == "" || txtRoll.getText() == ""){
+                System.out.println("True");
+            }
+            else{
                 txtMsg.setVisible(true);
                 lResult.setVisible(true);
                 txtMsg.setText(txtRoll.getText() + "," + txtName.getText());
+            }
         }
     }
 
