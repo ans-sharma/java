@@ -8,7 +8,7 @@ public class tictactoe extends JFrame implements ActionListener {
     int moveCount = 0;
 
     tictactoe() {
-        frame = new JFrame();
+        frame = new JFrame("Tic Tac Toe");
         btn1 = new JButton();
         btn2 = new JButton();
         btn3 = new JButton();
